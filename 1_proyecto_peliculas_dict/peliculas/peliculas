@@ -1,0 +1,97 @@
+import funciones
+
+pelis={
+    "nombre":""
+}
+
+def menuPrincipal():
+    print("\n\t\t:::::: MENU PRINCIPAL ::::::\n")
+    opcion = input("\n\t1.- Agregar\n\t2.- Borrar\n\t3.- Modificar\n\t4.- Mostrar\n\t5.- Buscar\n\t6.- Limpiar\n\t7.- Salir\n\tEscribe una opción: ").strip()
+    return opcion
+
+def agregarPeliculas(pelis):
+    print("\n\t\t:::::: AGREGAR CARACTERISTICAS A UNA PELICULA ::::::\n")
+  
+    caracteristica = input("Ingresa la característica (ej. nombre, categoria): ").lower().strip()
+    valor = input("Ingresa el valor de la característica: ").upper().strip()
+    pelis[caracteristica] = valor
+    funciones.accionExitosa()
+
+def mostrarPeliculas(pelis):
+    print("\n\t\t:::::: MOSTRAR LAS CARACTERISTICAS PELICULA ::::::\n")
+    if len(pelis) > 0:
+        print("\tCaracterística\tValor")
+        print("\t" + "-"*30)
+        for clave, valor in pelis.items():
+            print(f"\t{clave}\t\t{valor}")
+        funciones.espereTecla()
+    else:
+        input("\n\t... ¡No existe ninguna característica en la película, verifique! ...")
+
+def limpiarPeliculas(pelis):
+    print("\n\t\t:::::: BORRAR TODAS LAS CARACTERISTICAS DE LA PELICULA ::::::\n")
+    if len(pelis) > 0:
+        opc = ""
+        while opc != "si" and opc != "no":
+            opc = input("¿Deseas borrar TODAS las características de la película (Si/No)? ").lower().strip()
+        if opc == "si":
+            pelis.clear()
+            funciones.accionExitosa()
+    else:
+        input("\n\t... ¡No existen características que borrar, verifique! ...")
+
+def buscarPeliculas(pelis):
+    print("\n\t\t:::::: BUSCAR CARACTERISTICA DE LA PELICULA ::::::\n")
+
+    caracteristica = input("Escribe el nombre de la característica: ").lower().strip()
+    
+    
+    if caracteristica in pelis:
+        print("\n\tCaracterística\tValor")
+        print(f"\t{caracteristica}\t\t{pelis[caracteristica]}")
+        funciones.espereTecla()
+    else:
+        input("\n\t... ¡No existe la característica que andas buscando! ...")
+
+def borrarPeliculas(pelis):
+    print("\n\t\t:::::: BORRAR CARACTERISTICA DE LA PELICULA ::::::\n")
+    caracteristica = input("Escribe el nombre de la característica a borrar: ").lower().strip()
+    
+    if caracteristica in pelis:
+        opc = ""
+        while opc != "si" and opc != "no":
+            opc = input(f"¿Deseas borrar la característica '{caracteristica}' (Si/No)? ").lower().strip()
+        if opc == "si":
+            
+            pelis.pop(caracteristica)
+            funciones.accionExitosa()
+    else:
+        input("\n\t... ¡No existe la característica que andas buscando! ...")
+
+def modificarPeliculas(pelis):
+    print("\n\t\t:::::: MODIFICAR LA CARACTERISTICA DE PELICULA ::::::\n")
+    caracteristica = input("Escribe el nombre de la característica a modificar: ").lower().strip()
+    
+    if caracteristica in pelis:
+        print(f"\n\tValor actual de '{caracteristica}': {pelis[caracteristica]}")
+        opc = ""
+        while opc != "si" and opc != "no":
+            opc = input("¿Deseas modificar esta característica (Si/No)? ").lower().strip()
+        if opc == "si":
+            nuevo_valor = input("Escribe el nuevo valor: ").upper().strip()
+            pelis[caracteristica] = nuevo_valor
+            funciones.accionExitosa()
+    else:
+        input("\n\t... ¡No existe la característica que andas buscando! ...")
+ 
+def buscarPeliculas2(pelis):
+    print("\n\t\t:::::: BUSCAR CARACTERISTICA DE LA PELICULA ::::::\n")
+    caracteristica = input("Escribe el nombre de la característica: ").lower().strip()
+    
+    if caracteristica in pelis:
+        print("\n\tCaracterística\tValor")
+        print(f"\t{caracteristica}\t\t{pelis[caracteristica]}")
+        funciones.espereTecla()
+    else:
+        input("\n\t... ¡No existe esta característica que andas buscando! ...")
+        funciones.espereTecla()
