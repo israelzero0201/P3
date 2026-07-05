@@ -5,7 +5,6 @@ Colocar un menu de opciones: Agregar, Borrar, Modificar, Mostrar, Buscar, Limpia
 Notas: 
 1.- Utilizar funciones y mandar llamar desde otro archivo (modulo)
 2.- Utilizar dict para almacenar los atributos (nombre,categoria,clasificacion,genero,idioma) de peliculas
-3.- Utilizar o implementar BD relacional con MySQL para guardar la información
 
 '''
 import funciones
